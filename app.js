@@ -1,5 +1,7 @@
 const container = document.getElementById("personajes-container");
 const crewFilter = document.getElementById("crewFilter");
+const nameSearch = document.getElementById("namesearch");
+
 
 let personajes = [];
 
@@ -21,6 +23,8 @@ function renderPersonajes(lista) {
         `;
     container.innerHTML += card;
   });
+
+
 }
 fetch("https://api.api-onepiece.com/v2/characters/en")
   .then((response) => response.json())
@@ -38,4 +42,12 @@ crewFilter.addEventListener("change", () => {
     const filtered = personajes.filter((p) => p.crew?.roman_name === selectedCrew);
     renderPersonajes(filtered);
   }
+});
+
+nameSearch.addEventListener("input", () => {  
+  const searchTerm = nameSearch.value.toLowerCase();
+  const filtered = personajes.filter((p) =>
+    p.name.toLowerCase().includes(searchTerm)
+  );
+  renderPersonajes(filtered);
 });
