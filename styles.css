@@ -1,4 +1,23 @@
 body {
-  background-color: black;
-  color: white;
+  background-color: #f0f8ff;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+header {
+  background-color: #001f3f;
+  padding: 1rem;
+}
+
+header .navbar-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: gold !important;
+}
+
+.card {
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease;
+}
+.card:hover {
+  transform: scale(1.05);
 }
